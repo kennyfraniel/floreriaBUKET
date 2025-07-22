@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Complete Responsive  Flower Website Design Tutorials</title>
+    <title>BUKET</title>
      <!--Font awesome cdn link-->
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
      <!--custom css file link-->
@@ -34,6 +34,17 @@
     <a href="#" class="fas fa-heart" data-aos="zoom-in" data-aos-delay="600"></a>
   </div>
 </header>
+
+<script>
+  const toggler = document.getElementById('toggler');
+  const navLinks = document.querySelectorAll('header .navbar a');
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      toggler.checked = false; // desmarca el menú
+    });
+  });
+</script>
 <!--Header section ends-->
 
 
@@ -97,38 +108,39 @@
 <!--icons section starts-->
 
 <section class="icons-container">
-    <div class="icons">
-        <img src="images/icon-1.png" alt="">
-        <div class="info">
-            <h3>Pedidos y delivery</h3>
-            <span>todos los días</span>
-        </div>
+  <div class="icons" data-aos="fade-up" data-aos-delay="100">
+    <img src="images/icon-1.png" alt="">
+    <div class="info">
+      <h3>Pedidos y delivery</h3>
+      <span>todos los días</span>
     </div>
+  </div>
 
-    <div class="icons">
-        <img src="images/icon-2.png" alt="">
-        <div class="info">
-            <h3>Suscripciones semanales</h3>
-            <span>y quincenales</span>
-        </div>
+  <div class="icons" data-aos="fade-up" data-aos-delay="300">
+    <img src="images/icon-2.png" alt="">
+    <div class="info">
+      <h3>Suscripciones semanales</h3>
+      <span>y quincenales</span>
     </div>
+  </div>
 
-    <div class="icons">
-        <img src="images/icon-3.png" alt="">
-        <div class="info">
-            <h3>Beneficios y descuentos</h3>
-            <span>con tu compra</span>
-        </div>
+  <div class="icons" data-aos="fade-up" data-aos-delay="500">
+    <img src="images/icon-3.png" alt="">
+    <div class="info">
+      <h3>Beneficios y descuentos</h3>
+      <span>con tu compra</span>
     </div>
+  </div>
 
-    <div class="icons">
-        <img src="images/icon-4.png" alt="">
-        <div class="info">
-            <h3>Aceptamos cualquier </h3>
-            <span>tipo de pago</span>
-        </div>
+  <div class="icons" data-aos="fade-up" data-aos-delay="700">
+    <img src="images/icon-4.png" alt="">
+    <div class="info">
+      <h3>Aceptamos cualquier </h3>
+      <span>tipo de pago</span>
     </div>
+  </div>
 </section>
+
 
 <!--icons section ends-->
 
@@ -333,19 +345,17 @@
   <div class="location-content">
     <div class="map-container">
       <!-- Google Maps embed iframe -->
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.305767300601!2d-58.382806324944035!3d-34.596428857112194!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb5384cdfa989%3A0x4ab055b030180640!2sBUKET%20la%20florer%C3%ADa%20de%20MeryArroyo!5e0!3m2!1ses!2sar!4v1752063879427!5m2!1ses!2sar" 
-      width="600" 
-      height="450" 
-      style="border:0;" 
-      allowfullscreen="" 
-      loading="lazy" 
-      referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.305767300601!2d-58.382806324944035!3d-34.596428857112194!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb5384cdfa989%3A0x4ab055b030180640!2sBUKET%20la%20florer%C3%ADa%20de%20MeryArroyo!5e0!3m2!1ses!2sar!4v1752063879427!5m2!1ses!2sar" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade" 
+        allowfullscreen>
+      </iframe>
     </div>
-    <div class="location-text">
-      <p>
-        Nuestra florería está ubicada en la hermosa Zona de Retiro, Buenos Aires. 
-        Vení a visitarnos y descubrí arreglos florales únicos en un entorno lleno de vida y tradición.
+    <div class="location-text" aria-label="Descripción de la ubicación">
+      <p class="cascade-text">
+        Nuestra florería está ubicada en la hermosa Zona de Retiro, Buenos Aires.<br>
+        Vení a visitarnos y descubrí arreglos florales únicos en un entorno lleno de vida y tradición.<br><br>
       </p>
     </div>
   </div>
