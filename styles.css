@@ -841,6 +841,17 @@ header .navbar {
     color: var(--pink);
 }
 
+.footer .credit a {
+  color: #e91e63; /* O el color que uses en tu marca */
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.footer .credit a:hover {
+  color: #ff4081; /* Un tono más brillante al pasar el mouse */
+}
+
 
 
 .floating-buttons {
@@ -915,171 +926,148 @@ header .navbar {
 }
 
 
+/* Location Section Mejorado */
 .location {
-  padding: 4rem 2rem;
-  background: #fefefe;
+  padding: 5rem 2rem;
+  background-color: #fff8f5;
   text-align: center;
-}
-
-.location .heading {
-  font-family: 'Playfair Display', serif;
-  font-size: 3rem;
-  margin-bottom: 2rem;
-  color: var(--pink);
-}
-
-.location .heading span {
-  color: var(--floral-green);
-}
-
-.location-content {
-  display: flex;
-  gap: 2rem;
-  align-items: center;
-  justify-content: center;
   position: relative;
-}
-
-/* Contenedor del mapa con pequeño offset a la izquierda en escritorio */
-.map-container {
-  flex: 1 1 600px;
-  max-width: 600px;
-  position: relative;
-  left: -5%; /* offset a la izquierda */
-  box-shadow: 0 0 15px rgba(0,0,0,0.1);
-  border-radius: 10px;
   overflow: hidden;
-  height: 450px; /* fijo para evitar estiramientos */
 }
 
-.map-container iframe {
+/* Video de fondo */
+.location-bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  border: 0;
-  border-radius: 10px;
+  object-fit: cover;
+  z-index: 0;
+  opacity: 0.35;
+  pointer-events: none;
 }
 
-/* Texto descriptivo con animación de fade y subida suave */
-.location-text {
-  flex: 1 1 400px;
+/* Capa de contenido sobre el video */
+.location-overlay {
+  position: relative;
+  z-index: 1;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: none;
+  padding: 5rem 2rem;
+}
+
+/* Título con color, tamaño y animación */
+.location-title {
+  font-size: 5rem;
+  color: #e02564;
+  margin-bottom: 1rem;
   font-family: 'Playfair Display', serif;
-  font-size: 1.8rem;
-  color: var(--floral-green);
-  font-style: italic;
-  line-height: 1.6;
-  text-align: left;
-  padding: 0 1.5rem;
-  border-left: 4px solid var(--pink);
-  margin-left: 1rem;
-  white-space: normal;
-  overflow: visible;
-  border-right: none;
-  animation: fadeInUp 1.2s ease forwards;
-  opacity: 0;
-  transform: translateY(20px);
-  min-width: 280px;
-  max-width: 480px;
+  position: relative;
+  background: linear-gradient(90deg, #e91e63, #ff00dd);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: slideInDown 1s ease forwards;
 }
 
-/* Animación para el texto */
-@keyframes fadeInUp {
-  to {
+/* Descripción más estilizada */
+.location-description {
+  font-size: 1.5rem;
+  color: #0e0d0d;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  line-height: 1.9;
+  font-family: 'Playfair Display', serif;
+  animation: fadeIn 2s ease forwards;
+}
+
+/* Decoración animada de fondo (flores suaves) */
+.location::before {
+  content: "";
+  position: absolute;
+  top: -50px;
+  left: -50px;
+  width: 200px;
+  height: 200px;
+  background: url('https://i.imgur.com/w7b6vL2.png') no-repeat center/contain;
+  opacity: 0.08;
+  animation: floatFlower 12s infinite ease-in-out;
+}
+
+.location::after {
+  content: "";
+  position: absolute;
+  bottom: -50px;
+  right: -50px;
+  width: 180px;
+  height: 180px;
+  background: url('https://i.imgur.com/w7b6vL2.png') no-repeat center/contain;
+  opacity: 0.05;
+  animation: floatFlower 15s infinite ease-in-out reverse;
+}
+
+/* Animaciones personalizadas */
+@keyframes slideInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-/* ---------------------- MEDIA QUERIES ----------------------- */
-
-/* Tablets y pantallas menores a 991px */
-@media (max-width: 991px) {
-  .location-content {
-    flex-direction: column;
-    gap: 2rem;
-    padding: 0 1.5rem;
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
   }
-
-  .map-container {
-    max-width: 100%;
-    left: 0; /* quito offset en tablets */
-    height: 350px;
-  }
-
-  .location-text {
-    font-size: 1.6rem;
-    border-left: none;
-    padding: 0 1rem;
-    text-align: center;
-    margin-left: 0;
-    max-width: 100%;
-    animation: none; /* sin animación para mejor legibilidad */
+  100% {
     opacity: 1;
-    transform: none;
+    transform: translateY(0);
   }
 }
 
-/* Celulares, pantallas menores a 768px */
+@keyframes floatFlower {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(20px) rotate(10deg);
+  }
+}
+
+/* Map container */
+.map-container {
+  max-width: 100%;
+  margin: 0 auto;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+/* Responsive */
 @media (max-width: 768px) {
-  .location-content {
+  .location-title {
+    font-size: 4rem;
+  }
+
+  .location-description {
+    font-size: 1.5rem;
     padding: 0 1rem;
-    gap: 1.5rem;
-  }
-
-  .map-container {
-    height: 250px;
-  }
-
-  .location-text {
-    font-size: 1.4rem;
-    padding: 0 1rem;
-    line-height: 1.5;
-  }
-
-  .heading {
-    font-size: 2.5rem;
-    padding: 1rem 0;
-  }
-}
-
-/* Celulares pequeños, pantallas menores a 480px */
-@media (max-width: 480px) {
-  .location-content {
-    gap: 1rem;
-  }
-
-  .map-container {
-    max-width: 100% !important;
-    width: 100% !important;
-    left: 0 !important;
-    height: 200px !important;
-    box-shadow: 0 0 8px rgba(0,0,0,0.1);
   }
 
   .map-container iframe {
-    height: 100% !important;
-    width: 100% !important;
-    border-radius: 8px;
+    height: 250px;
   }
 
-  .location-text {
-    font-size: 1.2rem !important;
-    max-width: 100% !important;
-    margin-left: 0 !important;
-    padding: 0 0.5rem !important;
-    border-left: none !important;
-    text-align: center !important;
-    font-style: italic;
-    line-height: 1.5;
-    opacity: 1 !important;
-    transform: none !important;
-    animation: none !important;
-  }
-
-  .heading {
-    font-size: 1.8rem !important;
-    padding: 0.5rem 0 !important;
+  .location-bg-video {
+    height: auto;
+    min-height: 100%;
   }
 }
+
 
 
 /* media queries*/
